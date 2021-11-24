@@ -4,8 +4,6 @@ import random
 
 kesempatan = 3
 
-# score = ["100", "80", "60", "50"]
-
 nomorJawaban = random.randint(1, 10)
 
 def mainLagi():
@@ -37,12 +35,6 @@ def cekJawaban():
    if nomorJawaban == nomorTebakan:
       text.set("Selamat! Kamu menang! \njawaban yang benar = " + str(nomorJawaban))
       tombolCek.place_forget()
-      # if kesempatan > 2:
-      #    text2.set("Karena kamu menang dengan sisa " + str(kesempatan) + "\n kesempatan kamu mendapatkan score " + score[1])
-      # elif kesempatan > 1:
-      #    text2.set("Karena kamu menang dengan sisa " + str(kesempatan) + "\n kesempatan kamu mendapatkan score " + score[2])
-      # elif kesempatan > 0:
-      #    text2.set("Karena kamu menang dengan sisa " + str(kesempatan) + "\n kesempatan kamu mendapatkan score " + score[3])
    elif kesempatan == 0:
       text.set("GAME OVER!\nKamu kehabisan kesempatan menebak \njawaban yang benar = " + str(nomorJawaban))
       tombolCek.place_forget()
@@ -54,9 +46,9 @@ def cekJawaban():
       text.set(" Jawaban salah - kamu punya sisa " + str(kesempatan) + " kesempatan - \nHINT: Coba nomor lebih rendah")
       kotakJawaban.delete(0, END)
 
-root = Tk() # variable root untuk windows utama
-root.title("GAME TEBAK NOMOR") # judul dari programnya
-root.geometry("325x250") # lebar dan tinggi dari programnya
+root = Tk()
+root.title("GAME TEBAK NOMOR")
+root.geometry("325x250")
 root.resizable(False, False)
 
 
@@ -69,11 +61,9 @@ Main = Button(root, text="Reset",bg="yellow", width=6, command=mainLagi)
 
 text = StringVar()
 text.set("Kamu punya 3 kesempatan!")
-# text2 = StringVar()
 
 textUpdate = Label(root, textvariable=text)
-# textScore = Label(root, textvariable=text2)
-versiGame = Label(root, text="v0.0.2\ndibuat oleh kelompok 1")
+versiGame = Label(root, text="v0.0.2")
 
 judulan.pack()
 instruksi.pack()
@@ -81,7 +71,6 @@ kotakJawaban.pack()
 tombolCek.place(x=105, y=70)
 Main.place(x=160, y=70)
 textUpdate.pack(pady=30)
-# textScore.pack()
 versiGame.pack(pady=20)
 
 root.mainloop()
